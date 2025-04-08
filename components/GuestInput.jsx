@@ -3,7 +3,7 @@
 
 
 
-export default function GuestInput({ formData, handleChange, button, handleSubmit }) {
+export default function GuestInput({ formData, handleChange, button, handleSubmit, roomOptions }) {
 
 
 
@@ -175,6 +175,11 @@ export default function GuestInput({ formData, handleChange, button, handleSubmi
           onChange={handleChange}
           >
            <option value="">Select Room Number </option>
+           {roomOptions.map((element, index) => {
+              return(
+                <option key={index} value={element.value}>{element.label}</option>
+              )
+           })}
           </select>
         </div>
 
