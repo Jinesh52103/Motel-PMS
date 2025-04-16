@@ -160,11 +160,11 @@ export default function GuestInput({ formData, handleChange, button, handleSubmi
           onChange={handleChange}
           >
             <option value="">Select Room Type</option>
-            <option value="king">King</option>
-            <option value="queen">Queen</option>
+            <option value="King">King</option>
+            <option value="Queen">Queen</option>
           </select>
         </div>
-
+        
         <div>
           <label htmlFor="availableRooms">Room:</label>
           <select 

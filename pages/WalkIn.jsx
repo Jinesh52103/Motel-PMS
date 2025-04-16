@@ -24,13 +24,24 @@ const inputForm ={
 export default function WalkIn(){
 
     const [formData, setFormData] = useState(inputForm)
-    const[rooms, setRooms] = useState(roomData.map((element)=>{
+   
+
+    const filteredRoomInput = formData.roomType 
+    ? roomData.filter((element) => {
+        if(element.type === formData.roomType) return true
+    }).map((element)=>{
         return({
             label : element.roomNumber + " - " + element.type,
             value : element.roomNumber
         }) 
-    }))
+    })
 
+    : roomData.map((element)=>{
+        return({
+            label : element.roomNumber + " - " + element.type,
+            value : element.roomNumber
+        }) 
+    })
      
 
     function handleChange(e){
@@ -54,7 +65,7 @@ function handleSubmit(){
         handleChange={handleChange}
         button={"Check-In"}
         onClick={handleSubmit}
-        roomOptions={rooms}
+        roomOptions={filteredRoomInput}
         />
         </div>
     )
